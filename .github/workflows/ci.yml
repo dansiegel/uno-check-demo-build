@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-uno:
     uses: avantipoint/workflow-templates/.github/workflows/dotnet-build.yml@uno-check
     with:
       name: Demo Build
@@ -15,4 +15,10 @@ jobs:
       dotnet-version: 8.0.x
       uno-check: true
       uno-check-parameters: '--skip xcode --skip gtk3 --skip vswin --skip vsmac'
+      run-tests: false
+  build-normal:
+    uses: avantipoint/workflow-templates/.github/workflows/dotnet-build.yml@uno-check
+    with:
+      name: Demo Build
+      solution-path: MyProject.sln
       run-tests: false
